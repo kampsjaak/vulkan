@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(MyExecutable)
+project(vulkanTest)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi")
@@ -10,8 +10,8 @@ ADD_LIBRARY(LibsModule
 target_link_libraries(LibsModule -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi)
 target_link_libraries(LibsModule -L/usr/lib/x86_64-linux-gnu/)
 
-add_executable(MyExecutable main.cpp)
-target_link_libraries(MyExecutable LibsModule)
+add_executable(vulkanTest main.cpp)
+target_link_libraries(vulkanTest LibsModule)
 
 find_package(Vulkan REQUIRED)
 target_include_directories(${PROJECT_NAME} PUBLIC ${Vulkan_INCLUDE_DIRS})
